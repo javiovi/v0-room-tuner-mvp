@@ -4,6 +4,7 @@ import type React from "react"
 
 import Link from "next/link"
 import { useState } from "react"
+import { CenteredLayout } from "@/components/CenteredLayout"
 
 export default function DisposicionPage() {
   const [formData, setFormData] = useState({
@@ -20,74 +21,75 @@ export default function DisposicionPage() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center px-4 py-8">
-      <div className="max-w-xl w-full space-y-6">
-        <Link href="/sala" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-          ← Volver
-        </Link>
+    <CenteredLayout>
+      <Link
+        href="/sala"
+        className="text-sm text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1"
+      >
+        ← Volver
+      </Link>
 
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-foreground text-pretty">
-            ¿Dónde tenés tu equipo y tu punto de escucha?
-          </h1>
-          <p className="text-base text-muted-foreground">Elegí la opción que más se parezca a tu situación actual.</p>
+      <div className="space-y-3">
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground text-balance">
+          ¿Dónde tenés tu equipo y tu punto de escucha?
+        </h1>
+        <p className="text-base text-muted-foreground">Elegí la opción que más se parezca a tu situación actual.</p>
+      </div>
+
+      <form className="space-y-8">
+        <div className="space-y-4">
+          <h2 className="text-base font-semibold text-foreground">Ubicación del equipo de sonido</h2>
+          <div className="space-y-3">
+            {["Frente a la pared larga", "Frente a la pared corta", "Todavía no lo definí"].map((option) => (
+              <label
+                key={option}
+                className="flex items-center gap-4 cursor-pointer p-4 rounded-2xl border border-border/60 bg-card hover:bg-muted/50 transition-all shadow-sm"
+              >
+                <input
+                  type="radio"
+                  name="ubicacionEquipo"
+                  value={option}
+                  checked={formData.ubicacionEquipo === option}
+                  onChange={handleChange}
+                  className="w-5 h-5 accent-primary cursor-pointer"
+                />
+                <span className="text-base text-foreground">{option}</span>
+              </label>
+            ))}
+          </div>
         </div>
 
-        <form className="space-y-6">
+        <div className="space-y-4">
+          <h2 className="text-base font-semibold text-foreground">Dónde te sentás normalmente</h2>
           <div className="space-y-3">
-            <h2 className="text-sm font-medium text-foreground">Ubicación del equipo de sonido</h2>
-            <div className="space-y-2">
-              {["Frente a la pared larga", "Frente a la pared corta", "Todavía no lo definí"].map((option) => (
+            {["Cerca del centro de la sala", "Pegado a una pared", "En una esquina", "Voy cambiando bastante"].map(
+              (option) => (
                 <label
                   key={option}
-                  className="flex items-center gap-3 cursor-pointer p-3 rounded-lg hover:bg-muted transition-colors"
+                  className="flex items-center gap-4 cursor-pointer p-4 rounded-2xl border border-border/60 bg-card hover:bg-muted/50 transition-all shadow-sm"
                 >
                   <input
                     type="radio"
-                    name="ubicacionEquipo"
+                    name="dondeSientas"
                     value={option}
-                    checked={formData.ubicacionEquipo === option}
+                    checked={formData.dondeSientas === option}
                     onChange={handleChange}
-                    className="w-4 h-4 accent-primary"
+                    className="w-5 h-5 accent-primary cursor-pointer"
                   />
-                  <span className="text-sm text-foreground">{option}</span>
+                  <span className="text-base text-foreground">{option}</span>
                 </label>
-              ))}
-            </div>
+              ),
+            )}
           </div>
+        </div>
+      </form>
 
-          <div className="space-y-3">
-            <h2 className="text-sm font-medium text-foreground">Dónde te sentás normalmente</h2>
-            <div className="space-y-2">
-              {["Cerca del centro de la sala", "Pegado a una pared", "En una esquina", "Voy cambiando bastante"].map(
-                (option) => (
-                  <label
-                    key={option}
-                    className="flex items-center gap-3 cursor-pointer p-3 rounded-lg hover:bg-muted transition-colors"
-                  >
-                    <input
-                      type="radio"
-                      name="dondeSientas"
-                      value={option}
-                      checked={formData.dondeSientas === option}
-                      onChange={handleChange}
-                      className="w-4 h-4 accent-primary"
-                    />
-                    <span className="text-sm text-foreground">{option}</span>
-                  </label>
-                ),
-              )}
-            </div>
-          </div>
-        </form>
-
-        <Link
-          href="/muebles"
-          className="block w-full bg-primary text-primary-foreground py-3 px-4 rounded-lg font-semibold text-center hover:opacity-90 transition-opacity active:opacity-75"
-        >
-          Continuar
-        </Link>
-      </div>
-    </main>
+      <Link
+        href="/muebles"
+        className="block w-full bg-primary text-primary-foreground py-4 px-6 rounded-full font-semibold text-center hover:opacity-90 transition-all active:scale-[0.98] shadow-sm"
+      >
+        Continuar
+      </Link>
+    </CenteredLayout>
   )
 }

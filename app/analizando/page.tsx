@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { CenteredLayout } from "@/components/CenteredLayout"
 
 const tips = [
   "La posición del punto de escucha puede cambiar muchísimo la percepción.",
@@ -10,41 +11,37 @@ const tips = [
 
 export default function AnalizandoPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center px-4 py-8">
-      <div className="max-w-xl w-full space-y-6">
-        <div className="space-y-2 text-center">
-          <h1 className="text-3xl font-bold text-foreground text-pretty">Estamos analizando tu sala…</h1>
-          <p className="text-base text-muted-foreground leading-relaxed">
-            Usamos la información que compartiste para sugerirte cambios simples que puedan mejorar tu experiencia de
-            escucha.
-          </p>
-        </div>
-
-        {/* Loading spinner */}
-        <div className="flex justify-center mt-6">
-          <div className="w-12 h-12 border-4 border-muted border-t-primary rounded-full animate-spin"></div>
-        </div>
-
-        {/* Tips list */}
-        <div className="bg-muted/30 rounded-xl p-5 space-y-3">
-          <p className="text-sm font-semibold text-foreground">Mientras tanto, algunos datos útiles:</p>
-          <ul className="space-y-2">
-            {tips.map((tip, index) => (
-              <li key={index} className="text-sm text-muted-foreground flex gap-2">
-                <span className="text-primary font-bold">•</span>
-                <span>{tip}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <Link
-          href="/resultado"
-          className="block w-full bg-primary text-primary-foreground py-3 px-4 rounded-lg font-semibold text-center hover:opacity-90 transition-opacity active:opacity-75"
-        >
-          Ver resultados
-        </Link>
+    <CenteredLayout>
+      <div className="space-y-3 text-center">
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground text-balance">Estamos analizando tu sala…</h1>
+        <p className="text-base text-muted-foreground leading-relaxed">
+          Usamos la información que compartiste para sugerirte cambios simples que puedan mejorar tu experiencia de
+          escucha.
+        </p>
       </div>
-    </main>
+
+      <div className="flex justify-center py-4">
+        <div className="w-16 h-16 border-4 border-muted border-t-primary rounded-full animate-spin"></div>
+      </div>
+
+      <div className="bg-muted/40 rounded-3xl p-6 space-y-4 shadow-sm border border-border/30">
+        <p className="text-base font-semibold text-foreground">Mientras tanto, algunos datos útiles:</p>
+        <ul className="space-y-3">
+          {tips.map((tip, index) => (
+            <li key={index} className="text-sm text-muted-foreground flex gap-3">
+              <span className="text-primary font-bold text-lg leading-none mt-0.5">•</span>
+              <span className="leading-relaxed">{tip}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <Link
+        href="/resultado"
+        className="block w-full bg-primary text-primary-foreground py-4 px-6 rounded-full font-semibold text-center hover:opacity-90 transition-all active:scale-[0.98] shadow-sm"
+      >
+        Ver resultados
+      </Link>
+    </CenteredLayout>
   )
 }
