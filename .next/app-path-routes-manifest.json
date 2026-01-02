@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/analizando/page": "/analizando",
+  "/api/analyze-room/route": "/api/analyze-room",
+  "/disposicion/page": "/disposicion",
+  "/medicion/page": "/medicion",
+  "/muebles/page": "/muebles",
+  "/objetivo/page": "/objetivo",
+  "/page": "/",
+  "/resultado/page": "/resultado",
+  "/sala/page": "/sala"
+}

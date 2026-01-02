@@ -1,7 +1,9 @@
 "use client"
 
-import Link from "next/link"
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { CenteredLayout } from "@/components/CenteredLayout"
+import { useRoomStore } from "@/lib/roomStore"
 
 const tips = [
   "La posición del punto de escucha puede cambiar muchísimo la percepción.",
@@ -10,6 +12,28 @@ const tips = [
 ]
 
 export default function AnalizandoPage() {
+  const router = useRouter()
+  const project = useRoomStore((s) => s.project)
+  const setAnalysis = useRoomStore((s) => s.setAnalysis)
+
+  useEffect(() => {
+    const run = async () => {
+      try {
+        const res = await fetch("/api/analyze-room", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(project),
+        })
+
+        const data = await res.json()
+        setAnalysis(data)
+      } catch (_) {}
+      router.push("/resultado")
+    }
+
+    run()
+  }, [])
+
   return (
     <CenteredLayout>
       <div className="space-y-3 text-center">
@@ -37,14 +61,6 @@ export default function AnalizandoPage() {
           ))}
         </ul>
       </div>
-
-      <Link
-        href="/resultado"
-        className="block w-full bg-primary text-primary-foreground py-3 px-6 font-semibold text-center uppercase text-sm tracking-wide border-black hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 transition-all"
-        style={{ borderWidth: "3px", borderStyle: "solid", boxShadow: "4px 4px 0 0 rgba(0,0,0,1)" }}
-      >
-        [VER RESULTADOS]
-      </Link>
     </CenteredLayout>
   )
 }

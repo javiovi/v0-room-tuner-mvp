@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { CenteredLayout } from "@/components/CenteredLayout"
+import { useRoomStore } from "@/lib/roomStore"
 
 const objectives = [
   {
@@ -24,6 +25,7 @@ const objectives = [
 
 export default function ObjetivoPage() {
   const [selectedObjectiveId, setSelectedObjectiveId] = useState<string | null>(null)
+  const setGoal = useRoomStore((s) => s.setGoal)
 
   return (
     <CenteredLayout>
@@ -39,7 +41,10 @@ export default function ObjetivoPage() {
           <button
             key={objective.id}
             type="button"
-            onClick={() => setSelectedObjectiveId(objective.id)}
+            onClick={() => {
+              setSelectedObjectiveId(objective.id)
+              setGoal(objective.id as "music" | "instrument" | "work")
+            }}
             className={`w-full text-left p-4 transition-all cursor-pointer relative ${
               selectedObjectiveId === objective.id
                 ? "border-primary bg-primary/10"

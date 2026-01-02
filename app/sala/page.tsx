@@ -8,9 +8,11 @@ import { useState } from "react"
 
 import { CenteredLayout } from "@/components/CenteredLayout"
 import { PrimaryButton } from "@/components/PrimaryButton"
+import { useRoomStore } from "@/lib/roomStore"
 
 export default function SalaPage() {
   const router = useRouter()
+  const updateProject = useRoomStore((s) => s.updateProject)
   const [formData, setFormData] = useState({
     largo: "",
     ancho: "",
@@ -29,6 +31,15 @@ export default function SalaPage() {
 
   const handleContinue = (e: React.FormEvent) => {
     e.preventDefault()
+
+    updateProject({
+      lengthM: formData.largo ? Number(formData.largo) : undefined,
+      widthM: formData.ancho ? Number(formData.ancho) : undefined,
+      heightM: formData.altura ? Number(formData.altura) : undefined,
+      floorType: formData.tipoPiso as any,
+      wallType: formData.tipoParedes as any,
+    })
+
     router.push("/disposicion")
   }
 

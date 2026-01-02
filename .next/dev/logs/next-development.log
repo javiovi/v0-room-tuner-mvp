@@ -1,0 +1,13 @@
+[00:00:00.986] Server  LOG      ✓ Ready in 702ms
+[00:00:50.424] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:50.424] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:50.424] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765315605169}
+[00:00:58.152] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/objetivo color: rgb(120, 120, 120) color: inherit {"dp":"/objetivo","o":"http://localhost:3000/objetivo","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765315612895}
+[00:01:02.593] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/sala color: rgb(120, 120, 120) color: inherit {"dp":"/sala","o":"http://localhost:3000/sala","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765315617337}
+[00:01:13.979] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/disposicion color: rgb(120, 120, 120) color: inherit {"dp":"/disposicion","o":"http://localhost:3000/disposicion","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765315628724}
+[00:01:18.055] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/muebles color: rgb(120, 120, 120) color: inherit {"dp":"/muebles","o":"http://localhost:3000/muebles","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765315632800}
+[00:01:21.545] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/medicion color: rgb(120, 120, 120) color: inherit {"dp":"/medicion","o":"http://localhost:3000/medicion","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765315636289}
+[00:01:23.208] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/analizando color: rgb(120, 120, 120) color: inherit {"dp":"/analizando","o":"http://localhost:3000/analizando","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765315637952}
+[00:01:23.378] Server  ERROR   N8N_ANALYZE_ROOM_WEBHOOK_URL no configurada
+[00:01:23.404] Server  ERROR   N8N_ANALYZE_ROOM_WEBHOOK_URL no configurada
+[00:01:23.892] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/resultado color: rgb(120, 120, 120) color: inherit {"dp":"/resultado","o":"http://localhost:3000/resultado","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765315638637}

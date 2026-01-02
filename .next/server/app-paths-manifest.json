@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/analizando/page": "app/analizando/page.js",
+  "/api/analyze-room/route": "app/api/analyze-room/route.js",
+  "/disposicion/page": "app/disposicion/page.js",
+  "/medicion/page": "app/medicion/page.js",
+  "/muebles/page": "app/muebles/page.js",
+  "/objetivo/page": "app/objetivo/page.js",
+  "/page": "app/page.js",
+  "/resultado/page": "app/resultado/page.js",
+  "/sala/page": "app/sala/page.js"
+}
