@@ -9,7 +9,7 @@ import { RoomMetricsCard } from "@/components/report/RoomMetricsCard"
 import { FrequencyResponseChart } from "@/components/report/FrequencyResponseChart"
 import { RoomModesChart } from "@/components/report/RoomModesChart"
 import { ProductTable } from "@/components/report/ProductTable"
-import { RoomDiagram } from "@/components/report/RoomDiagram"
+import { InteractiveRoomDiagram } from "@/components/report/InteractiveRoomDiagram"
 
 export default function ResultadoPage() {
   const analysis = useRoomStore((s) => s.analysis)
@@ -165,7 +165,13 @@ export default function ResultadoPage() {
       label: "Diagrama",
       content: (
         <div className="space-y-4">
-          <RoomDiagram diagram={roomDiagram} />
+          <InteractiveRoomDiagram
+            diagram={roomDiagram}
+            onPositionsChange={(positions) => {
+              console.log('Positions changed:', positions)
+              // TODO: Recalcular métricas acústicas en tiempo real
+            }}
+          />
         </div>
       ),
     },
