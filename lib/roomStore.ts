@@ -2,28 +2,15 @@
 "use client"
 
 import { create } from "zustand"
-import type { RoomProject, RoomGoal } from "@/types/room"
-
-export interface RecommendationBlock {
-  title: string
-  items: string[]
-}
-
-export interface AnalyzeRoomResponse {
-  summary: string
-  roomCharacter: "viva" | "equilibrada" | "seca"
-  freeChanges: RecommendationBlock
-  lowBudgetChanges: RecommendationBlock
-  advancedChanges: RecommendationBlock
-}
+import type { RoomProject, RoomGoal, EnhancedAnalysisResponse } from "@/app/types/room"
 
 interface RoomState {
   project: RoomProject
-  analysis: AnalyzeRoomResponse | null
+  analysis: EnhancedAnalysisResponse | null
 
   setGoal: (goal: RoomGoal) => void
   updateProject: (partial: Partial<RoomProject>) => void
-  setAnalysis: (analysis: AnalyzeRoomResponse) => void
+  setAnalysis: (analysis: EnhancedAnalysisResponse) => void
   reset: () => void
 }
 

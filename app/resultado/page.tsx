@@ -3,13 +3,19 @@
 import Link from "next/link"
 import { CenteredLayout } from "@/components/CenteredLayout"
 import { PrimaryButton } from "@/components/PrimaryButton"
+import { RetroTabs } from "@/components/RetroTabs"
 import { useRoomStore } from "@/lib/roomStore"
+import { RoomMetricsCard } from "@/components/report/RoomMetricsCard"
+import { FrequencyResponseChart } from "@/components/report/FrequencyResponseChart"
+import { RoomModesChart } from "@/components/report/RoomModesChart"
+import { ProductTable } from "@/components/report/ProductTable"
+import { RoomDiagram } from "@/components/report/RoomDiagram"
 
 export default function ResultadoPage() {
   const analysis = useRoomStore((s) => s.analysis)
   const project = useRoomStore((s) => s.project)
 
-  // 🛡️ Si no hay análisis, mostramos un fallback en vez de explotar
+  // 🛡️ Si no hay análisis, mostramos un fallback
   if (!analysis) {
     return (
       <CenteredLayout>
@@ -33,101 +39,226 @@ export default function ResultadoPage() {
     )
   }
 
-  const { freeChanges, lowBudgetChanges } = analysis
+  const {
+    summary,
+    roomCharacter,
+    priorityScore,
+    roomMetrics,
+    frequencyResponse,
+    freeChanges,
+    lowBudgetChanges,
+    advancedChanges,
+    roomDiagram,
+  } = analysis
+
+  // Calculate total issues for badge
+  const totalIssues = priorityScore.critical + priorityScore.improvements
+
+  // Define tabs content
+  const tabs = [
+    {
+      id: "resumen",
+      label: "Resumen",
+      badge: totalIssues > 0 ? totalIssues : undefined,
+      content: (
+        <div className="space-y-4">
+          {/* Priority Score Badges */}
+          <div className="flex items-center justify-center gap-3 text-[10px] font-mono flex-wrap">
+            {priorityScore.critical > 0 && (
+              <div className="px-3 py-1 border-2 border-destructive text-destructive bg-destructive/10">
+                {priorityScore.critical} CRÍTICO{priorityScore.critical > 1 ? "S" : ""}
+              </div>
+            )}
+            {priorityScore.improvements > 0 && (
+              <div className="px-3 py-1 border-2 border-accent text-accent bg-accent/10">
+                {priorityScore.improvements} MEJORA{priorityScore.improvements > 1 ? "S" : ""}
+              </div>
+            )}
+            {priorityScore.optimizations > 0 && (
+              <div className="px-3 py-1 border-2 border-primary text-primary bg-primary/10">
+                {priorityScore.optimizations} OPTIMIZACION{priorityScore.optimizations > 1 ? "ES" : ""}
+              </div>
+            )}
+          </div>
+
+          {/* Executive Summary */}
+          <div
+            className="border-primary bg-card p-4 space-y-3 glow-border"
+            style={{ borderWidth: "3px", borderStyle: "solid" }}
+          >
+            <h2 className="text-sm font-semibold text-accent uppercase tracking-wide">
+              [DIAGNÓSTICO GENERAL]
+            </h2>
+            <p className="text-foreground text-sm leading-relaxed">{summary}</p>
+            <div className="flex items-center justify-between text-xs border-t border-muted-foreground/30 pt-2 mt-2 flex-wrap gap-2">
+              <span className="text-muted-foreground">
+                Objetivo:{" "}
+                <span className="text-accent">
+                  {project.goal === "music"
+                    ? "Escuchar música"
+                    : project.goal === "instrument"
+                      ? "Tocar instrumento"
+                      : project.goal === "work"
+                        ? "Trabajar / concentrarme"
+                        : "Sin objetivo definido"}
+                </span>
+              </span>
+              <span className="text-muted-foreground">
+                Carácter:{" "}
+                <span
+                  className={
+                    roomCharacter === "viva"
+                      ? "text-yellow-400"
+                      : roomCharacter === "equilibrada"
+                        ? "text-primary"
+                        : "text-blue-400"
+                  }
+                >
+                  {roomCharacter.toUpperCase()}
+                </span>
+              </span>
+            </div>
+          </div>
+
+          {/* Room Metrics */}
+          <RoomMetricsCard metrics={roomMetrics} roomCharacter={roomCharacter} />
+
+          {/* Next Steps */}
+          <div
+            className="border-primary bg-card p-4 space-y-3"
+            style={{ borderWidth: "3px", borderStyle: "solid" }}
+          >
+            <h2 className="text-sm font-semibold text-accent uppercase tracking-wide">
+              [PRÓXIMOS PASOS]
+            </h2>
+            <div className="space-y-2 text-xs text-muted-foreground">
+              <div className="flex gap-2">
+                <span className="text-primary font-bold">[1]</span>
+                <span>Comenzar con cambios gratuitos esta semana</span>
+              </div>
+              <div className="flex gap-2">
+                <span className="text-primary font-bold">[2]</span>
+                <span>Revisar recomendaciones de productos</span>
+              </div>
+              <div className="flex gap-2">
+                <span className="text-primary font-bold">[3]</span>
+                <span>Implementar mejoras de forma gradual</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "analisis",
+      label: "Análisis",
+      badge: roomMetrics.roomModes.filter((m) => m.severity === "high" && m.frequency < 300).length,
+      content: (
+        <div className="space-y-4">
+          <FrequencyResponseChart data={frequencyResponse} />
+          <RoomModesChart modes={roomMetrics.roomModes} />
+        </div>
+      ),
+    },
+    {
+      id: "diagrama",
+      label: "Diagrama",
+      content: (
+        <div className="space-y-4">
+          <RoomDiagram diagram={roomDiagram} />
+        </div>
+      ),
+    },
+    {
+      id: "recomendaciones",
+      label: "Productos",
+      badge: freeChanges.items.length + lowBudgetChanges.items.length + advancedChanges.items.length,
+      content: (
+        <div className="space-y-6">
+          {/* Free Changes */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-primary uppercase tracking-wide flex items-center gap-2">
+              <span className="text-accent">[01]</span>
+              {freeChanges.title}
+            </h3>
+            <div
+              className="border-primary/30 bg-card p-4 space-y-2"
+              style={{ borderWidth: "2px", borderStyle: "solid" }}
+            >
+              {freeChanges.items.map((tip, index) => (
+                <div key={index} className="flex gap-2">
+                  <span className="text-accent text-xs font-bold">[{String(index + 1).padStart(2, "0")}]</span>
+                  <span className="text-foreground text-xs leading-relaxed">{tip}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Low Budget */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-yellow-400 uppercase tracking-wide flex items-center gap-2">
+              <span className="text-accent">[02]</span>
+              Bajo Presupuesto
+            </h3>
+            <ProductTable recommendations={lowBudgetChanges} />
+          </div>
+
+          {/* Advanced */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-blue-400 uppercase tracking-wide flex items-center gap-2">
+              <span className="text-accent">[03]</span>
+              Soluciones Avanzadas
+            </h3>
+            <ProductTable recommendations={advancedChanges} />
+          </div>
+        </div>
+      ),
+    },
+  ]
 
   return (
     <CenteredLayout>
+      {/* Header */}
       <div className="space-y-2 text-center">
         <h1 className="text-lg md:text-xl font-bold text-primary glow-text font-mono">
-          {"> "}Resultados iniciales
+          {"> "}Análisis Completo
         </h1>
         <p className="text-xs text-muted-foreground uppercase tracking-wide">
-          {"// "}Diagnóstico basado en los datos ingresados
+          {"// "}Reporte con cálculos acústicos reales
         </p>
       </div>
 
-      <div
-        className="border-primary bg-card p-4 space-y-3 glow-border"
-        style={{ borderWidth: "3px", borderStyle: "solid" }}
-      >
-        <h2 className="text-sm font-semibold text-accent uppercase tracking-wide">[DIAGNÓSTICO GENERAL]</h2>
-        <p className="text-foreground text-sm leading-relaxed">{analysis.summary}</p>
-        <p className="text-xs text-muted-foreground border-t border-muted-foreground/30 pt-2 mt-2">
-          Objetivo:{" "}
-          <span className="text-accent">
-            {project.goal === "music"
-              ? "Escuchar música"
-              : project.goal === "instrument"
-                ? "Tocar instrumento"
-                : project.goal === "work"
-                  ? "Trabajar / concentrarme"
-                  : "Sin objetivo definido"}
-          </span>
-        </p>
-      </div>
+      {/* Tabs */}
+      <RetroTabs tabs={tabs} defaultTab="resumen" />
 
-      <div className="space-y-4">
-        {/* Bloque cambios sin gastar */}
-        <div className="space-y-3">
-          <h3 className="text-sm font-bold text-primary uppercase tracking-wide">
-            {">"} {freeChanges?.title ?? "Cambios sin gastar dinero"}
-          </h3>
-          <div
-            className="border-primary/30 bg-card p-4 space-y-2"
-            style={{ borderWidth: "2px", borderStyle: "solid" }}
+      {/* Actions */}
+      <div className="space-y-3 pt-4 border-t border-muted-foreground/20">
+        <PrimaryButton type="button" onClick={() => window.print()}>
+          [IMPRIMIR / GUARDAR PDF]
+        </PrimaryButton>
+
+        <div className="text-center pt-2 space-y-2">
+          <Link
+            href="/objetivo"
+            className="block text-xs text-primary hover:text-accent transition-colors uppercase tracking-wide"
           >
-            {(freeChanges?.items ?? []).map((tip, index) => (
-              <div key={index} className="flex gap-2">
-                <span className="text-accent text-xs font-bold">
-                  [{String(index + 1).padStart(2, "0")}]
-                </span>
-                <span className="text-foreground text-xs leading-relaxed">{tip}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bloque cambios bajo presupuesto */}
-        <div className="space-y-3">
-          <h3 className="text-sm font-bold text-yellow-400 uppercase tracking-wide">
-            {">"} {lowBudgetChanges?.title ?? "Cambios con bajo presupuesto"}
-          </h3>
-          <div
-            className="border-yellow-400/30 bg-card p-4 space-y-2"
-            style={{ borderWidth: "2px", borderStyle: "solid" }}
-          >
-            {(lowBudgetChanges?.items ?? []).map((tip, index) => (
-              <div key={index} className="flex gap-2">
-                <span className="text-yellow-400 text-xs font-bold">
-                  [{String(index + 1).padStart(2, "0")}]
-                </span>
-                <span className="text-foreground text-xs leading-relaxed">{tip}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div
-        className="border-dashed border-muted-foreground/50 p-8 text-center bg-muted/20"
-        style={{ borderWidth: "3px" }}
-      >
-        <p className="text-muted-foreground text-xs uppercase tracking-wide">
-          {"// "}Esquema de sala [PRÓXIMAMENTE]
-        </p>
-      </div>
-
-      <div className="space-y-3 pt-2">
-        <PrimaryButton type="button">[GUARDAR PROYECTO]</PrimaryButton>
-
-        <div className="text-center pt-2">
+            {"↻"} ANALIZAR OTRA SALA
+          </Link>
           <Link
             href="/"
-            className="text-xs text-accent hover:text-primary transition-colors uppercase tracking-wide"
+            className="block text-xs text-muted-foreground hover:text-primary transition-colors uppercase tracking-wide"
           >
             {"<"} VOLVER AL INICIO
           </Link>
         </div>
+      </div>
+
+      {/* Footer note */}
+      <div className="text-center text-[10px] text-muted-foreground pt-4 border-t border-muted-foreground/20">
+        <p>Análisis generado: {new Date(analysis.generatedAt).toLocaleString("es-AR")}</p>
+        <p className="mt-1">
+          Análisis estimado. Para resultados profesionales, considerar medición especializada.
+        </p>
       </div>
     </CenteredLayout>
   )
