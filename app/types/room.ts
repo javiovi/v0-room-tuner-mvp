@@ -11,12 +11,12 @@ export interface RoomProject {
   heightM?: number
 
   // Materiales
-  floorType?: "madera" | "ceramico" | "alfombra" | "otro"
-  wallType?: "desnudas" | "cuadros" | "bibliotecas" | "mixto"
+  floorType?: "ceramico" | "madera" | "vinilico" | "concreto" | "marmol" | "alfombra" | "goma" | "otro"
+  wallType?: "desnudas" | "vidrio" | "ladrillo" | "cuadros" | "bibliotecas" | "cortinas" | "paneles_madera" | "mixto"
 
   // Disposición
-  equipmentPosition?: "pared_larga" | "pared_corta" | "indefinido"
-  listeningPosition?: "centro" | "pared" | "esquina" | "variable"
+  speakerPlacement?: "pared-larga-centrado" | "pared-corta-centrado" | "esquina" | "pared-lateral" | "indefinido"
+  listeningPosition?: "centro-sala" | "escritorio-pared" | "sillon-pared-posterior" | "esquina" | "variable"
 
   // Muebles
   furniture?: string[] // ej: ["sofa", "escritorio"]

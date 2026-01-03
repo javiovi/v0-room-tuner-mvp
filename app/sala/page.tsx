@@ -53,92 +53,144 @@ export default function SalaPage() {
       </Link>
 
       <div className="space-y-3">
-        <h1 className="text-lg md:text-xl font-bold text-primary glow-text font-mono">{"> "}Contanos sobre tu sala</h1>
-        <p className="text-sm text-muted-foreground">{"// "}No hace falta que las medidas sean perfectas</p>
+        <h1 className="text-base md:text-lg font-bold text-primary glow-text font-mono">
+          {"> "}Contanos sobre tu sala
+        </h1>
+        <p className="text-xs md:text-sm text-muted-foreground">
+          {"// "}No hace falta que las medidas sean perfectas
+        </p>
       </div>
 
-      <form className="space-y-5" onSubmit={handleContinue}>
-        <div>
-          <label htmlFor="largo" className="block text-xs font-semibold text-accent mb-2 uppercase tracking-wide">
-            Largo (m)
-          </label>
-          <input
-            type="text"
-            id="largo"
-            name="largo"
-            value={formData.largo}
-            onChange={handleChange}
-            placeholder="ej: 5"
-            className="w-full border-2 border-primary/50 px-4 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono"
-          />
+      <form className="space-y-4" onSubmit={handleContinue}>
+        {/* Dimensiones */}
+        <div className="space-y-3">
+          <h2 className="text-xs font-bold text-accent uppercase tracking-wide border-b border-accent/30 pb-1">
+            [DIMENSIONES]
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div>
+              <label htmlFor="largo" className="block text-[11px] font-semibold text-accent mb-2 uppercase tracking-wide">
+                Largo (m)
+              </label>
+              <input
+                type="number"
+                step="0.1"
+                id="largo"
+                name="largo"
+                value={formData.largo}
+                onChange={handleChange}
+                placeholder="ej: 5"
+                className="w-full border-2 border-primary/50 px-3 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono touch-manipulation"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="ancho" className="block text-[11px] font-semibold text-accent mb-2 uppercase tracking-wide">
+                Ancho (m)
+              </label>
+              <input
+                type="number"
+                step="0.1"
+                id="ancho"
+                name="ancho"
+                value={formData.ancho}
+                onChange={handleChange}
+                placeholder="ej: 4"
+                className="w-full border-2 border-primary/50 px-3 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono touch-manipulation"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="altura" className="block text-[11px] font-semibold text-accent mb-2 uppercase tracking-wide">
+                Altura (m)
+              </label>
+              <input
+                type="number"
+                step="0.1"
+                id="altura"
+                name="altura"
+                value={formData.altura}
+                onChange={handleChange}
+                placeholder="ej: 2.7"
+                className="w-full border-2 border-primary/50 px-3 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono touch-manipulation"
+              />
+            </div>
+          </div>
+
+          {/* Helper text */}
+          <p className="text-[10px] text-muted-foreground">
+            Tip: Si no tenés las medidas exactas, estimá usando pasos (1 paso ≈ 0.8m)
+          </p>
         </div>
 
-        <div>
-          <label htmlFor="ancho" className="block text-xs font-semibold text-accent mb-2 uppercase tracking-wide">
-            Ancho (m)
-          </label>
-          <input
-            type="text"
-            id="ancho"
-            name="ancho"
-            value={formData.ancho}
-            onChange={handleChange}
-            placeholder="ej: 4"
-            className="w-full border-2 border-primary/50 px-4 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono"
-          />
-        </div>
+        {/* Materiales */}
+        <div className="space-y-3">
+          <h2 className="text-xs font-bold text-accent uppercase tracking-wide border-b border-accent/30 pb-1">
+            [MATERIALES]
+          </h2>
 
-        <div>
-          <label htmlFor="altura" className="block text-xs font-semibold text-accent mb-2 uppercase tracking-wide">
-            Altura (m)
-          </label>
-          <input
-            type="text"
-            id="altura"
-            name="altura"
-            value={formData.altura}
-            onChange={handleChange}
-            placeholder="ej: 2.7"
-            className="w-full border-2 border-primary/50 px-4 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono"
-          />
-        </div>
+          <div>
+            <label htmlFor="tipoPiso" className="block text-[11px] font-semibold text-accent mb-2 uppercase tracking-wide">
+              Tipo de piso
+            </label>
+            <select
+              id="tipoPiso"
+              name="tipoPiso"
+              value={formData.tipoPiso}
+              onChange={handleChange}
+              className="w-full border-2 border-primary/50 px-3 py-3 text-sm bg-muted text-foreground focus:outline-none focus:border-primary transition-all appearance-none font-mono cursor-pointer touch-manipulation"
+            >
+              <option value="">{">"} Selecciona una opción</option>
+              <optgroup label="Duros (más reflexivos)">
+                <option value="ceramico">Cerámico / Porcelanato</option>
+                <option value="madera">Madera / Parquet</option>
+                <option value="vinilico">Vinílico / Flotante</option>
+                <option value="concreto">Concreto / Cemento</option>
+                <option value="marmol">Mármol / Piedra</option>
+              </optgroup>
+              <optgroup label="Blandos (más absorbentes)">
+                <option value="alfombra">Alfombra / Moquette</option>
+                <option value="goma">Goma / Caucho</option>
+              </optgroup>
+              <option value="otro">Otro / Mixto</option>
+            </select>
+          </div>
 
-        <div>
-          <label htmlFor="tipoPiso" className="block text-xs font-semibold text-accent mb-2 uppercase tracking-wide">
-            Tipo de piso
-          </label>
-          <select
-            id="tipoPiso"
-            name="tipoPiso"
-            value={formData.tipoPiso}
-            onChange={handleChange}
-            className="w-full border-2 border-primary/50 px-4 py-3 text-sm bg-muted text-foreground focus:outline-none focus:border-primary transition-all appearance-none font-mono cursor-pointer"
-          >
-            <option value="">{">"} Selecciona una opción</option>
-            <option value="madera">Madera</option>
-            <option value="ceramico">Cerámico</option>
-            <option value="alfombra">Alfombra</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
+          <div>
+            <label htmlFor="tipoParedes" className="block text-[11px] font-semibold text-accent mb-2 uppercase tracking-wide">
+              Tipo de paredes
+            </label>
+            <select
+              id="tipoParedes"
+              name="tipoParedes"
+              value={formData.tipoParedes}
+              onChange={handleChange}
+              className="w-full border-2 border-primary/50 px-3 py-3 text-sm bg-muted text-foreground focus:outline-none focus:border-primary transition-all appearance-none font-mono cursor-pointer touch-manipulation"
+            >
+              <option value="">{">"} Selecciona una opción</option>
+              <optgroup label="Duras (más reflexivas)">
+                <option value="desnudas">Paredes desnudas / Pintadas</option>
+                <option value="vidrio">Con ventanas grandes / Vidrio</option>
+                <option value="ladrillo">Ladrillo a la vista</option>
+              </optgroup>
+              <optgroup label="Con elementos">
+                <option value="cuadros">Con cuadros / Decoración</option>
+                <option value="bibliotecas">Con bibliotecas / Muebles</option>
+                <option value="cortinas">Con cortinas gruesas</option>
+                <option value="paneles_madera">Paneles de madera</option>
+              </optgroup>
+              <option value="mixto">Mixto (combinación)</option>
+            </select>
+          </div>
 
-        <div>
-          <label htmlFor="tipoParedes" className="block text-xs font-semibold text-accent mb-2 uppercase tracking-wide">
-            Tipo de paredes
-          </label>
-          <select
-            id="tipoParedes"
-            name="tipoParedes"
-            value={formData.tipoParedes}
-            onChange={handleChange}
-            className="w-full border-2 border-primary/50 px-4 py-3 text-sm bg-muted text-foreground focus:outline-none focus:border-primary transition-all appearance-none font-mono cursor-pointer"
-          >
-            <option value="">{">"} Selecciona una opción</option>
-            <option value="desnudas">Desnudas</option>
-            <option value="cuadros">Con cuadros</option>
-            <option value="bibliotecas">Con bibliotecas</option>
-            <option value="mixto">Mixto</option>
-          </select>
+          {/* Info sobre materiales */}
+          <div className="p-2 border border-accent/20 bg-accent/5">
+            <p className="text-[10px] text-muted-foreground">
+              <span className="text-accent font-bold">Info:</span> Materiales duros reflejan más sonido (sala más viva),
+              materiales blandos absorben (sala más seca).
+            </p>
+          </div>
         </div>
 
         <PrimaryButton type="submit">[CONTINUAR]</PrimaryButton>

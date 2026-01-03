@@ -175,7 +175,7 @@ export function ProductTable({ recommendations, title }: ProductTableProps) {
 
       {/* Note */}
       <div className="p-3 border border-accent/30 bg-accent/5 text-[10px] text-muted-foreground">
-        <span className="text-accent font-bold">💡 Nota:</span> Los precios son estimados y pueden variar según proveedor y ubicación.
+        <span className="text-accent font-bold">Nota:</span> Los precios son estimados y pueden variar según proveedor y ubicación.
         Considera comenzar con los ítems de impacto alto antes de invertir en toda la lista.
       </div>
     </div>

@@ -158,23 +158,49 @@ export function evaluateRT60(
 
 export const absorptionCoefficients = {
   floor: {
-    madera: { low: 0.15, mid: 0.10, high: 0.10 },
+    // Duros (más reflexivos)
     ceramico: { low: 0.01, mid: 0.01, high: 0.02 },
+    madera: { low: 0.15, mid: 0.10, high: 0.10 },
+    vinilico: { low: 0.03, mid: 0.03, high: 0.04 }, // Similar a madera pero más reflexivo
+    concreto: { low: 0.01, mid: 0.01, high: 0.02 }, // Muy reflexivo
+    marmol: { low: 0.01, mid: 0.01, high: 0.01 }, // Extremadamente reflexivo
+    // Blandos (más absorbentes)
     alfombra: { low: 0.10, mid: 0.40, high: 0.60 },
+    goma: { low: 0.05, mid: 0.15, high: 0.30 }, // Caucho - absorbe medios/altos
+    // Otros
     otro: { low: 0.05, mid: 0.05, high: 0.05 },
   },
   wall: {
+    // Duras (más reflexivas)
     desnudas: { low: 0.02, mid: 0.02, high: 0.03 },
+    vidrio: { low: 0.03, mid: 0.02, high: 0.02 }, // Ventanas - muy reflexivo
+    ladrillo: { low: 0.03, mid: 0.03, high: 0.04 }, // Similar a desnudas
+    // Con elementos
     cuadros: { low: 0.05, mid: 0.10, high: 0.15 },
-    bibliotecas: { low: 0.10, mid: 0.25, high: 0.40 },
+    bibliotecas: { low: 0.10, mid: 0.25, high: 0.40 }, // Libros absorben bien
+    cortinas: { low: 0.05, mid: 0.25, high: 0.45 }, // Tela gruesa - buena absorción
+    paneles_madera: { low: 0.15, mid: 0.20, high: 0.15 }, // Absorción moderada
+    // Mixto
     mixto: { low: 0.06, mid: 0.15, high: 0.20 },
   },
   furniture: {
+    // Asientos
     sofa: { low: 0.25, mid: 0.35, high: 0.40 },
-    escritorio: { low: 0.05, mid: 0.10, high: 0.10 },
-    estanteria: { low: 0.10, mid: 0.20, high: 0.30 },
     silla: { low: 0.05, mid: 0.15, high: 0.20 },
+    puff: { low: 0.20, mid: 0.30, high: 0.35 }, // Similar a sofá pero menor
+    // Almacenamiento
+    estanteria: { low: 0.10, mid: 0.20, high: 0.30 },
+    armario: { low: 0.08, mid: 0.12, high: 0.15 }, // Madera sólida
+    cajonera: { low: 0.06, mid: 0.10, high: 0.12 }, // Similar a armario
+    // Trabajo/Estudio
+    escritorio: { low: 0.05, mid: 0.10, high: 0.10 },
     mesa: { low: 0.03, mid: 0.08, high: 0.10 },
+    rack: { low: 0.05, mid: 0.12, high: 0.18 }, // Equipos + madera
+    // Otros
+    cama: { low: 0.30, mid: 0.40, high: 0.45 }, // Colchón + ropa - muy absorbente
+    plantas: { low: 0.05, mid: 0.10, high: 0.15 }, // Hojas absorben altos
+    instrumentos: { low: 0.10, mid: 0.15, high: 0.20 }, // Madera + formas irregulares
+    alfombra: { low: 0.15, mid: 0.40, high: 0.60 }, // Alfombra como mueble/decoración
   },
 }
 

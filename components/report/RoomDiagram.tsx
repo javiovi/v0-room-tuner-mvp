@@ -250,7 +250,7 @@ export function RoomDiagram({ diagram }: RoomDiagramProps) {
 
       {/* Instructions */}
       <div className="p-3 border border-primary/30 bg-primary/5 text-[10px] text-muted-foreground space-y-1">
-        <p><span className="text-primary font-bold">💡 Interpretar el diagrama:</span></p>
+        <p><span className="text-primary font-bold">Interpretar el diagrama:</span></p>
         <ul className="list-disc list-inside space-y-0.5 ml-2">
           <li>Los parlantes (L/R) deben formar triángulo equilátero con punto de escucha</li>
           <li>Bass Traps (B) en las esquinas controlan modos de graves</li>
