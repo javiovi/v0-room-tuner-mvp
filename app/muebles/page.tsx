@@ -8,7 +8,6 @@ import { PrimaryButton } from "@/components/PrimaryButton"
 import { useRoomStore } from "@/lib/roomStore"
 import {
   Armchair,
-  ChairIcon as Chair,
   Circle,
   BookOpen,
   DoorClosed,
@@ -19,15 +18,27 @@ import {
   BedDouble,
   Flower2,
   Music,
-  Grid2X2
+  Grid2X2,
+  type LucideIcon
 } from "lucide-react"
 
-const furnitureOptions = [
+interface FurnitureItem {
+  id: string
+  label: string
+  Icon: LucideIcon
+}
+
+interface FurnitureCategory {
+  category: string
+  items: FurnitureItem[]
+}
+
+const furnitureOptions: FurnitureCategory[] = [
   {
     category: "Asientos",
     items: [
       { id: "sofa", label: "Sofá / Sillón", Icon: Armchair },
-      { id: "silla", label: "Sillas", Icon: Chair },
+      { id: "silla", label: "Sillas", Icon: Square },
       { id: "puff", label: "Puff / Banquetas", Icon: Circle },
     ],
   },
