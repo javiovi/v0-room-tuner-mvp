@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { Music, Guitar, Briefcase } from "lucide-react"
 
 export default function LandingPage() {
   return (
@@ -175,8 +176,12 @@ export default function LandingPage() {
 
         <div className="grid md:grid-cols-3 gap-4">
           {/* Music */}
-          <div className="border-2 border-primary/30 bg-card p-5 space-y-2 text-center">
-            <div className="text-4xl">🎵</div>
+          <div className="border-2 border-primary/30 bg-card p-5 space-y-3 text-center">
+            <div className="flex justify-center">
+              <div className="w-16 h-16 border-2 border-primary bg-primary/10 flex items-center justify-center">
+                <Music className="w-8 h-8 text-primary" strokeWidth={2} />
+              </div>
+            </div>
             <h3 className="text-sm font-bold text-primary uppercase">Escuchar Música</h3>
             <p className="text-xs text-muted-foreground">
               Balance stereo perfecto, control de graves, sweet spot optimizado
@@ -184,8 +189,12 @@ export default function LandingPage() {
           </div>
 
           {/* Instrument */}
-          <div className="border-2 border-primary/30 bg-card p-5 space-y-2 text-center">
-            <div className="text-4xl">🎸</div>
+          <div className="border-2 border-primary/30 bg-card p-5 space-y-3 text-center">
+            <div className="flex justify-center">
+              <div className="w-16 h-16 border-2 border-primary bg-primary/10 flex items-center justify-center">
+                <Guitar className="w-8 h-8 text-primary" strokeWidth={2} />
+              </div>
+            </div>
             <h3 className="text-sm font-bold text-primary uppercase">Tocar Instrumento</h3>
             <p className="text-xs text-muted-foreground">
               Acústica viva pero controlada, sin ecos molestos, monitoreo claro
@@ -193,8 +202,12 @@ export default function LandingPage() {
           </div>
 
           {/* Work */}
-          <div className="border-2 border-primary/30 bg-card p-5 space-y-2 text-center">
-            <div className="text-4xl">💼</div>
+          <div className="border-2 border-primary/30 bg-card p-5 space-y-3 text-center">
+            <div className="flex justify-center">
+              <div className="w-16 h-16 border-2 border-primary bg-primary/10 flex items-center justify-center">
+                <Briefcase className="w-8 h-8 text-primary" strokeWidth={2} />
+              </div>
+            </div>
             <h3 className="text-sm font-bold text-primary uppercase">Trabajar/Estudiar</h3>
             <p className="text-xs text-muted-foreground">
               Sala seca para concentración, control de ruido, calls más claras

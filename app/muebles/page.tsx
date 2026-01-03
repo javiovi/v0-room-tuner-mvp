@@ -6,39 +6,54 @@ import { useState } from "react"
 import { CenteredLayout } from "@/components/CenteredLayout"
 import { PrimaryButton } from "@/components/PrimaryButton"
 import { useRoomStore } from "@/lib/roomStore"
+import {
+  Armchair,
+  ChairIcon as Chair,
+  Circle,
+  BookOpen,
+  DoorClosed,
+  Archive,
+  Monitor,
+  Square,
+  Radio,
+  BedDouble,
+  Flower2,
+  Music,
+  Grid2X2
+} from "lucide-react"
 
 const furnitureOptions = [
   {
     category: "Asientos",
     items: [
-      { id: "sofa", label: "Sofá / Sillón", icon: "🛋️" },
-      { id: "silla", label: "Sillas", icon: "🪑" },
-      { id: "puff", label: "Puff / Banquetas", icon: "💺" },
+      { id: "sofa", label: "Sofá / Sillón", Icon: Armchair },
+      { id: "silla", label: "Sillas", Icon: Chair },
+      { id: "puff", label: "Puff / Banquetas", Icon: Circle },
     ],
   },
   {
     category: "Almacenamiento",
     items: [
-      { id: "estanteria", label: "Estantería / Biblioteca", icon: "📚" },
-      { id: "armario", label: "Armario / Placard", icon: "🚪" },
-      { id: "cajonera", label: "Cajonera / Cómoda", icon: "🗄️" },
+      { id: "estanteria", label: "Estantería / Biblioteca", Icon: BookOpen },
+      { id: "armario", label: "Armario / Placard", Icon: DoorClosed },
+      { id: "cajonera", label: "Cajonera / Cómoda", Icon: Archive },
     ],
   },
   {
     category: "Trabajo/Estudio",
     items: [
-      { id: "escritorio", label: "Escritorio / Mesa", icon: "🖥️" },
-      { id: "mesa", label: "Mesa ratona / Centro", icon: "⬜" },
-      { id: "rack", label: "Rack de equipos", icon: "📻" },
+      { id: "escritorio", label: "Escritorio / Mesa", Icon: Monitor },
+      { id: "mesa", label: "Mesa ratona / Centro", Icon: Square },
+      { id: "rack", label: "Rack de equipos", Icon: Radio },
     ],
   },
   {
     category: "Otros",
     items: [
-      { id: "cama", label: "Cama", icon: "🛏️" },
-      { id: "plantas", label: "Plantas grandes", icon: "🌿" },
-      { id: "instrumentos", label: "Instrumentos musicales", icon: "🎸" },
-      { id: "alfombra", label: "Alfombra gruesa", icon: "🟫" },
+      { id: "cama", label: "Cama", Icon: BedDouble },
+      { id: "plantas", label: "Plantas grandes", Icon: Flower2 },
+      { id: "instrumentos", label: "Instrumentos musicales", Icon: Music },
+      { id: "alfombra", label: "Alfombra gruesa", Icon: Grid2X2 },
     ],
   },
 ]
@@ -117,7 +132,9 @@ export default function MueblesPage() {
                     onChange={() => toggleFurniture(item.id)}
                     className="sr-only"
                   />
-                  <span className="text-lg flex-shrink-0">{item.icon}</span>
+                  <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+                    <item.Icon className="w-6 h-6 text-primary" strokeWidth={2} />
+                  </div>
                   <span className="text-xs md:text-sm text-foreground">{item.label}</span>
                 </label>
               ))}
