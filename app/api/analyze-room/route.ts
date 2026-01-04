@@ -15,6 +15,7 @@ import {
   getProductById,
   calculateTreatmentCost,
 } from "@/lib/acousticProducts"
+import { enrichProductsWithRealPrices } from "@/lib/productPricing"
 import { createServerClient } from "@/lib/supabase/client"
 
 const N8N_URL = process.env.N8N_WEBHOOK_URL
@@ -213,7 +214,23 @@ function generateLocalAnalysis(project: RoomProject): EnhancedAnalysisResponse {
     roomCharacter,
     "low"
   )
-  const lowBudgetProducts = convertToProductRecommendations(lowBudgetRecs, "ARS")
+
+  // Enrich some products with real ML prices (limit to 4 to keep analysis fast)
+  const productsToEnrich = lowBudgetRecs
+    .slice(0, 4)
+    .map(r => getProductById(r.productId))
+    .filter(Boolean) as any[]
+
+  const enrichedProducts = await enrichProductsWithRealPrices(productsToEnrich, {
+    useServer: true,
+    batchSize: 2,
+    delay: 300
+  }).catch(err => {
+    console.warn('[Analysis] Failed to enrich products with real prices:', err)
+    return productsToEnrich // Fallback to database prices
+  })
+
+  const lowBudgetProducts = convertToProductRecommendations(lowBudgetRecs, "ARS", enrichedProducts)
   const lowBudgetCost = calculateTreatmentCost(
     lowBudgetRecs.map((r) => ({ id: r.productId, quantity: r.quantity })),
     "ARS"
@@ -368,17 +385,23 @@ function generateFreeRecommendations(
 
 /**
  * Convert product recommendations to full product objects
+ * Optionally use enriched products with real ML prices
  */
 function convertToProductRecommendations(
   recommendations: ReturnType<typeof generateProductRecommendations>,
-  currency: "USD" | "ARS"
+  currency: "USD" | "ARS",
+  enrichedProducts?: any[]
 ): ProductRecommendation[] {
   return recommendations.map((rec) => {
-    const product = getProductById(rec.productId)
+    // Try to find enriched product first
+    const enriched = enrichedProducts?.find(p => p.id === rec.productId)
+    const product = enriched || getProductById(rec.productId)
+
     if (!product) {
       throw new Error(`Product not found: ${rec.productId}`)
     }
 
+    // Use real price if available from ML, otherwise use database price
     const unitPrice = currency === "USD" ? product.priceUSD : product.priceARS
     const totalPrice = unitPrice * rec.quantity
 
