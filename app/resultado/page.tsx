@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { CenteredLayout } from "@/components/CenteredLayout"
 import { PrimaryButton } from "@/components/PrimaryButton"
@@ -17,6 +18,7 @@ import { ActionPlan } from "@/components/report/ActionPlan"
 export default function ResultadoPage() {
   const analysis = useRoomStore((s) => s.analysis)
   const project = useRoomStore((s) => s.project)
+  const [pdfLoading, setPdfLoading] = useState(false)
 
   // 🛡️ Si no hay análisis, mostramos un fallback
   if (!analysis) {
@@ -40,6 +42,49 @@ export default function ResultadoPage() {
         </div>
       </CenteredLayout>
     )
+  }
+
+  // 📄 Download PDF function
+  const handleDownloadPDF = async () => {
+    if (!analysis || !project) return
+
+    setPdfLoading(true)
+    try {
+      const response = await fetch('/api/generate-pdf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          project,
+          analysis,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to generate PDF')
+      }
+
+      // Get the PDF blob
+      const blob = await response.blob()
+
+      // Create download link
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `roomtuner-reporte-${new Date().toISOString().split('T')[0]}.pdf`
+      document.body.appendChild(a)
+      a.click()
+
+      // Cleanup
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+    } catch (error) {
+      console.error('Error downloading PDF:', error)
+      alert('Error al generar el PDF. Por favor intenta nuevamente.')
+    } finally {
+      setPdfLoading(false)
+    }
   }
 
   const {
@@ -250,8 +295,12 @@ export default function ResultadoPage() {
 
       {/* Actions */}
       <div className="space-y-3 pt-4 border-t border-muted-foreground/20">
-        <PrimaryButton type="button" onClick={() => window.print()}>
-          [IMPRIMIR / GUARDAR PDF]
+        <PrimaryButton
+          type="button"
+          onClick={handleDownloadPDF}
+          disabled={pdfLoading}
+        >
+          {pdfLoading ? '[GENERANDO PDF...]' : '[DESCARGAR PDF]'}
         </PrimaryButton>
 
         <div className="text-center pt-2 space-y-2">

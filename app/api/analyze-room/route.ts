@@ -92,18 +92,18 @@ export async function POST(req: Request) {
           if (data.roomMetrics) {
             analysis = data
           } else {
-            analysis = generateLocalAnalysis(project)
+            analysis = await generateLocalAnalysis(project)
           }
         } else {
-          analysis = generateLocalAnalysis(project)
+          analysis = await generateLocalAnalysis(project)
         }
       } catch (n8nError) {
         console.warn("N8N webhook failed, using local analysis:", n8nError)
-        analysis = generateLocalAnalysis(project)
+        analysis = await generateLocalAnalysis(project)
       }
     } else {
       // Generate comprehensive analysis locally
-      analysis = generateLocalAnalysis(project)
+      analysis = await generateLocalAnalysis(project)
     }
 
     const calculationTime = Date.now() - startTime
@@ -165,7 +165,7 @@ export async function POST(req: Request) {
 /**
  * Generate comprehensive analysis using local calculations
  */
-function generateLocalAnalysis(project: RoomProject): EnhancedAnalysisResponse {
+async function generateLocalAnalysis(project: RoomProject): Promise<EnhancedAnalysisResponse> {
   const { lengthM = 0, widthM = 0, heightM = 0, goal } = project
 
   // === STEP 1: Calculate room metrics ===
