@@ -228,7 +228,7 @@ function SalaPage() {
                 className: "space-y-3",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-lg md:text-xl font-bold text-primary glow-text font-mono",
+                        className: "text-base md:text-lg font-bold text-primary glow-text font-mono",
                         children: [
                             "> ",
                             "Contanos sobre tu sala"
@@ -239,14 +239,14 @@ function SalaPage() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-sm text-muted-foreground",
+                        className: "text-xs md:text-sm text-muted-foreground",
                         children: [
                             "// ",
                             "No hace falta que las medidas sean perfectas"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/sala/page.tsx",
-                        lineNumber: 57,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, this)
                 ]
@@ -256,243 +256,422 @@ function SalaPage() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                className: "space-y-5",
+                className: "space-y-4",
                 onSubmit: handleContinue,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "space-y-3",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "largo",
-                                className: "block text-xs font-semibold text-accent mb-2 uppercase tracking-wide",
-                                children: "Largo (m)"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-xs font-bold text-accent uppercase tracking-wide border-b border-accent/30 pb-1",
+                                children: "[DIMENSIONES]"
                             }, void 0, false, {
                                 fileName: "[project]/app/sala/page.tsx",
-                                lineNumber: 62,
+                                lineNumber: 67,
                                 columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "text",
-                                id: "largo",
-                                name: "largo",
-                                value: formData.largo,
-                                onChange: handleChange,
-                                placeholder: "ej: 5",
-                                className: "w-full border-2 border-primary/50 px-4 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono"
-                            }, void 0, false, {
-                                fileName: "[project]/app/sala/page.tsx",
-                                lineNumber: 65,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/sala/page.tsx",
-                        lineNumber: 61,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "ancho",
-                                className: "block text-xs font-semibold text-accent mb-2 uppercase tracking-wide",
-                                children: "Ancho (m)"
-                            }, void 0, false, {
-                                fileName: "[project]/app/sala/page.tsx",
-                                lineNumber: 77,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "text",
-                                id: "ancho",
-                                name: "ancho",
-                                value: formData.ancho,
-                                onChange: handleChange,
-                                placeholder: "ej: 4",
-                                className: "w-full border-2 border-primary/50 px-4 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono"
-                            }, void 0, false, {
-                                fileName: "[project]/app/sala/page.tsx",
-                                lineNumber: 80,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/sala/page.tsx",
-                        lineNumber: 76,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "altura",
-                                className: "block text-xs font-semibold text-accent mb-2 uppercase tracking-wide",
-                                children: "Altura (m)"
-                            }, void 0, false, {
-                                fileName: "[project]/app/sala/page.tsx",
-                                lineNumber: 92,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "text",
-                                id: "altura",
-                                name: "altura",
-                                value: formData.altura,
-                                onChange: handleChange,
-                                placeholder: "ej: 2.7",
-                                className: "w-full border-2 border-primary/50 px-4 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono"
-                            }, void 0, false, {
-                                fileName: "[project]/app/sala/page.tsx",
-                                lineNumber: 95,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/sala/page.tsx",
-                        lineNumber: 91,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "tipoPiso",
-                                className: "block text-xs font-semibold text-accent mb-2 uppercase tracking-wide",
-                                children: "Tipo de piso"
-                            }, void 0, false, {
-                                fileName: "[project]/app/sala/page.tsx",
-                                lineNumber: 107,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                id: "tipoPiso",
-                                name: "tipoPiso",
-                                value: formData.tipoPiso,
-                                onChange: handleChange,
-                                className: "w-full border-2 border-primary/50 px-4 py-3 text-sm bg-muted text-foreground focus:outline-none focus:border-primary transition-all appearance-none font-mono cursor-pointer",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "grid grid-cols-1 md:grid-cols-3 gap-3",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
-                                            ">",
-                                            " Selecciona una opción"
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                htmlFor: "largo",
+                                                className: "block text-[11px] font-semibold text-accent mb-2 uppercase tracking-wide",
+                                                children: "Largo (m)"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 73,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "number",
+                                                step: "0.1",
+                                                id: "largo",
+                                                name: "largo",
+                                                value: formData.largo,
+                                                onChange: handleChange,
+                                                placeholder: "ej: 5",
+                                                className: "w-full border-2 border-primary/50 px-3 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono touch-manipulation"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 76,
+                                                columnNumber: 15
+                                            }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/sala/page.tsx",
-                                        lineNumber: 117,
+                                        lineNumber: 72,
                                         columnNumber: 13
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "madera",
-                                        children: "Madera"
-                                    }, void 0, false, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                htmlFor: "ancho",
+                                                className: "block text-[11px] font-semibold text-accent mb-2 uppercase tracking-wide",
+                                                children: "Ancho (m)"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 89,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "number",
+                                                step: "0.1",
+                                                id: "ancho",
+                                                name: "ancho",
+                                                value: formData.ancho,
+                                                onChange: handleChange,
+                                                placeholder: "ej: 4",
+                                                className: "w-full border-2 border-primary/50 px-3 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono touch-manipulation"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 92,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/app/sala/page.tsx",
-                                        lineNumber: 118,
+                                        lineNumber: 88,
                                         columnNumber: 13
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "ceramico",
-                                        children: "Cerámico"
-                                    }, void 0, false, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                htmlFor: "altura",
+                                                className: "block text-[11px] font-semibold text-accent mb-2 uppercase tracking-wide",
+                                                children: "Altura (m)"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 105,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "number",
+                                                step: "0.1",
+                                                id: "altura",
+                                                name: "altura",
+                                                value: formData.altura,
+                                                onChange: handleChange,
+                                                placeholder: "ej: 2.7",
+                                                className: "w-full border-2 border-primary/50 px-3 py-3 text-sm bg-muted text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-all font-mono touch-manipulation"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 108,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/app/sala/page.tsx",
-                                        lineNumber: 119,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "alfombra",
-                                        children: "Alfombra"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sala/page.tsx",
-                                        lineNumber: 120,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "otro",
-                                        children: "Otro"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sala/page.tsx",
-                                        lineNumber: 121,
+                                        lineNumber: 104,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/sala/page.tsx",
-                                lineNumber: 110,
+                                lineNumber: 71,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-[10px] text-muted-foreground",
+                                children: "Tip: Si no tenés las medidas exactas, estimá usando pasos (1 paso ≈ 0.8m)"
+                            }, void 0, false, {
+                                fileName: "[project]/app/sala/page.tsx",
+                                lineNumber: 122,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/sala/page.tsx",
-                        lineNumber: 106,
+                        lineNumber: 66,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "space-y-3",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                htmlFor: "tipoParedes",
-                                className: "block text-xs font-semibold text-accent mb-2 uppercase tracking-wide",
-                                children: "Tipo de paredes"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-xs font-bold text-accent uppercase tracking-wide border-b border-accent/30 pb-1",
+                                children: "[MATERIALES]"
                             }, void 0, false, {
-                                fileName: "[project]/app/sala/page.tsx",
-                                lineNumber: 126,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                id: "tipoParedes",
-                                name: "tipoParedes",
-                                value: formData.tipoParedes,
-                                onChange: handleChange,
-                                className: "w-full border-2 border-primary/50 px-4 py-3 text-sm bg-muted text-foreground focus:outline-none focus:border-primary transition-all appearance-none font-mono cursor-pointer",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "",
-                                        children: [
-                                            ">",
-                                            " Selecciona una opción"
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/sala/page.tsx",
-                                        lineNumber: 136,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "desnudas",
-                                        children: "Desnudas"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sala/page.tsx",
-                                        lineNumber: 137,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "cuadros",
-                                        children: "Con cuadros"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sala/page.tsx",
-                                        lineNumber: 138,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "bibliotecas",
-                                        children: "Con bibliotecas"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sala/page.tsx",
-                                        lineNumber: 139,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                        value: "mixto",
-                                        children: "Mixto"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sala/page.tsx",
-                                        lineNumber: 140,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
                                 fileName: "[project]/app/sala/page.tsx",
                                 lineNumber: 129,
                                 columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        htmlFor: "tipoPiso",
+                                        className: "block text-[11px] font-semibold text-accent mb-2 uppercase tracking-wide",
+                                        children: "Tipo de piso"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/sala/page.tsx",
+                                        lineNumber: 134,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        id: "tipoPiso",
+                                        name: "tipoPiso",
+                                        value: formData.tipoPiso,
+                                        onChange: handleChange,
+                                        className: "w-full border-2 border-primary/50 px-3 py-3 text-sm bg-muted text-foreground focus:outline-none focus:border-primary transition-all appearance-none font-mono cursor-pointer touch-manipulation",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "",
+                                                children: [
+                                                    ">",
+                                                    " Selecciona una opción"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 144,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("optgroup", {
+                                                label: "Duros (más reflexivos)",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "ceramico",
+                                                        children: "Cerámico / Porcelanato"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 146,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "madera",
+                                                        children: "Madera / Parquet"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 147,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "vinilico",
+                                                        children: "Vinílico / Flotante"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 148,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "concreto",
+                                                        children: "Concreto / Cemento"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 149,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "marmol",
+                                                        children: "Mármol / Piedra"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 150,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 145,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("optgroup", {
+                                                label: "Blandos (más absorbentes)",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "alfombra",
+                                                        children: "Alfombra / Moquette"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 153,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "goma",
+                                                        children: "Goma / Caucho"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 154,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 152,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "otro",
+                                                children: "Otro / Mixto"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 156,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/sala/page.tsx",
+                                        lineNumber: 137,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/sala/page.tsx",
+                                lineNumber: 133,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        htmlFor: "tipoParedes",
+                                        className: "block text-[11px] font-semibold text-accent mb-2 uppercase tracking-wide",
+                                        children: "Tipo de paredes"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/sala/page.tsx",
+                                        lineNumber: 161,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        id: "tipoParedes",
+                                        name: "tipoParedes",
+                                        value: formData.tipoParedes,
+                                        onChange: handleChange,
+                                        className: "w-full border-2 border-primary/50 px-3 py-3 text-sm bg-muted text-foreground focus:outline-none focus:border-primary transition-all appearance-none font-mono cursor-pointer touch-manipulation",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "",
+                                                children: [
+                                                    ">",
+                                                    " Selecciona una opción"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 171,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("optgroup", {
+                                                label: "Duras (más reflexivas)",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "desnudas",
+                                                        children: "Paredes desnudas / Pintadas"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 173,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "vidrio",
+                                                        children: "Con ventanas grandes / Vidrio"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 174,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "ladrillo",
+                                                        children: "Ladrillo a la vista"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 175,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 172,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("optgroup", {
+                                                label: "Con elementos",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "cuadros",
+                                                        children: "Con cuadros / Decoración"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 178,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "bibliotecas",
+                                                        children: "Con bibliotecas / Muebles"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 179,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "cortinas",
+                                                        children: "Con cortinas gruesas"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 180,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "paneles_madera",
+                                                        children: "Paneles de madera"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sala/page.tsx",
+                                                        lineNumber: 181,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 177,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "mixto",
+                                                children: "Mixto (combinación)"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/sala/page.tsx",
+                                                lineNumber: 183,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/sala/page.tsx",
+                                        lineNumber: 164,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/sala/page.tsx",
+                                lineNumber: 160,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "p-2 border border-accent/20 bg-accent/5",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-[10px] text-muted-foreground",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-accent font-bold",
+                                            children: "Info:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/sala/page.tsx",
+                                            lineNumber: 190,
+                                            columnNumber: 15
+                                        }, this),
+                                        " Materiales duros reflejan más sonido (sala más viva), materiales blandos absorben (sala más seca)."
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/sala/page.tsx",
+                                    lineNumber: 189,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/sala/page.tsx",
+                                lineNumber: 188,
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/sala/page.tsx",
-                        lineNumber: 125,
+                        lineNumber: 128,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$PrimaryButton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PrimaryButton"], {
@@ -500,13 +679,13 @@ function SalaPage() {
                         children: "[CONTINUAR]"
                     }, void 0, false, {
                         fileName: "[project]/app/sala/page.tsx",
-                        lineNumber: 144,
+                        lineNumber: 196,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/sala/page.tsx",
-                lineNumber: 60,
+                lineNumber: 64,
                 columnNumber: 7
             }, this)
         ]

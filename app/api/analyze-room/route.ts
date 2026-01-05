@@ -278,6 +278,7 @@ async function generateLocalAnalysis(project: RoomProject): Promise<EnhancedAnal
       roomModes,
       rt60Estimate: rt60,
       rt60Evaluation: rt60Eval,
+      totalAbsorption: absorption.average,
     },
 
     materialsAnalysis: {

@@ -1,11 +1,11 @@
 {
   "/analizando/page": "app/analizando/page.js",
   "/api/analyze-room/route": "app/api/analyze-room/route.js",
+  "/api/generate-pdf/route": "app/api/generate-pdf/route.js",
   "/disposicion/page": "app/disposicion/page.js",
-  "/medicion/page": "app/medicion/page.js",
+  "/espacio/page": "app/espacio/page.js",
   "/muebles/page": "app/muebles/page.js",
   "/objetivo/page": "app/objetivo/page.js",
   "/page": "app/page.js",
-  "/resultado/page": "app/resultado/page.js",
-  "/sala/page": "app/sala/page.js"
+  "/resultado/page": "app/resultado/page.js"
 }

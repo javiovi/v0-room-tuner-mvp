@@ -102,6 +102,31 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/espacio": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/espacio",
+      "dataRoute": "/espacio.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/medicion": {
       "experimentalBypassFor": [
         {
@@ -226,38 +251,13 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
-    },
-    "/sala": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/sala",
-      "dataRoute": "/sala.rsc",
-      "prefetchDataRoute": null,
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
     }
   },
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "193a83c017d01cf4d0b8cf604bf3b02d",
-    "previewModeSigningKey": "024b3f81cc758e41cda836e55e901748ead5b3c09e91af5b489d430ef0ee1b88",
-    "previewModeEncryptionKey": "ccc5f4382f48af6c3ce483d020768ef44b15888420bd77e07b0fa52fe126b58e"
+    "previewModeId": "0e21d0cd727d01c9c735193a90d03d7c",
+    "previewModeSigningKey": "04ee6f83042cbb8ea00c28183aabd3e10ab63ddd76bcdd9b7ea92ed8d6c90883",
+    "previewModeEncryptionKey": "c3c8467d480bae664228eff1f62d41c8f42f74161b45eb902893166156772d05"
   }
 }

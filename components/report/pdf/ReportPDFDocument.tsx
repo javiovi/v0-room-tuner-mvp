@@ -12,6 +12,10 @@ import {
   View,
   StyleSheet,
   Font,
+  Link,
+  Svg,
+  Rect,
+  Circle,
 } from '@react-pdf/renderer'
 import type { EnhancedAnalysisResponse, RoomProject } from '@/app/types/room'
 
@@ -226,6 +230,45 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.primary,
   },
+
+  // Links
+  link: {
+    color: colors.primary,
+    textDecoration: 'underline',
+  },
+
+  // Diagram
+  diagramContainer: {
+    width: '100%',
+    height: 400,
+    marginVertical: 20,
+    borderWidth: 2,
+    borderColor: colors.primary,
+    borderStyle: 'solid',
+    backgroundColor: '#FAFAFA',
+    padding: 20,
+  },
+  diagramLegend: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 10,
+    gap: 10,
+  },
+  legendItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginRight: 15,
+  },
+  legendDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginRight: 5,
+  },
+  legendText: {
+    fontSize: 8,
+    color: '#1A1A1A',
+  },
 })
 
 interface ReportPDFDocumentProps {
@@ -392,6 +435,129 @@ export function ReportPDFDocument({ project, analysis }: ReportPDFDocumentProps)
         </View>
       </Page>
 
+      {/* Room Diagram 2D */}
+      <Page size="A4" style={styles.page}>
+        <Text style={styles.sectionHeader}>[DIAGRAMA DE POSICIONES 2D]</Text>
+
+        <Text style={styles.body}>
+          Vista superior de tu espacio con posiciones optimizadas:
+        </Text>
+
+        <View style={styles.diagramContainer}>
+          <Svg width="100%" height="350" viewBox="0 0 400 350">
+            {/* Room outline */}
+            <Rect
+              x="50"
+              y="50"
+              width="300"
+              height="250"
+              fill="none"
+              stroke={colors.foreground}
+              strokeWidth="2"
+            />
+
+            {/* Dimension labels */}
+            <Text x="200" y="35" fontSize="10" textAnchor="middle" fill={colors.muted}>
+              {project.lengthM}m
+            </Text>
+            <Text x="365" y="175" fontSize="10" textAnchor="start" fill={colors.muted}>
+              {project.widthM}m
+            </Text>
+
+            {/* Speakers */}
+            {analysis.roomDiagram?.floorPlan?.speakerPositions?.map((speaker, idx) => {
+              const x = 50 + (speaker.x / project.widthM) * 300
+              const y = 50 + (speaker.y / project.lengthM) * 250
+              return (
+                <React.Fragment key={`speaker-${idx}`}>
+                  <Rect
+                    x={x - 8}
+                    y={y - 8}
+                    width="16"
+                    height="16"
+                    fill={colors.primary}
+                    stroke="#000"
+                    strokeWidth="1"
+                  />
+                  <Text x={x} y={y - 15} fontSize="8" textAnchor="middle" fill={colors.primary}>
+                    S{idx + 1}
+                  </Text>
+                </React.Fragment>
+              )
+            })}
+
+            {/* Listening Position */}
+            {analysis.roomDiagram?.floorPlan?.listeningPosition && (() => {
+              const lp = analysis.roomDiagram.floorPlan.listeningPosition
+              const x = 50 + (lp.x / project.widthM) * 300
+              const y = 50 + (lp.y / project.lengthM) * 250
+              return (
+                <React.Fragment>
+                  <Circle
+                    cx={x}
+                    cy={y}
+                    r="10"
+                    fill={colors.accent}
+                    stroke="#000"
+                    strokeWidth="1"
+                  />
+                  <Text x={x} y={y - 18} fontSize="8" textAnchor="middle" fill={colors.accent}>
+                    SWEET SPOT
+                  </Text>
+                </React.Fragment>
+              )
+            })()}
+
+            {/* Treatment positions */}
+            {analysis.roomDiagram?.treatmentPlan?.slice(0, 4).map((treatment, idx) => {
+              const x = 50 + treatment.position.x * 300
+              const y = 50 + treatment.position.y * 250
+              return (
+                <Circle
+                  key={`treatment-${idx}`}
+                  cx={x}
+                  cy={y}
+                  r="6"
+                  fill={treatment.type === 'bass_trap' ? '#EF4444' : '#10B981'}
+                  opacity="0.7"
+                />
+              )
+            })}
+          </Svg>
+        </View>
+
+        {/* Legend */}
+        <View style={styles.diagramLegend}>
+          <View style={styles.legendItem}>
+            <View style={[styles.legendDot, { backgroundColor: colors.primary }]} />
+            <Text style={styles.legendText}>Parlantes (S1, S2)</Text>
+          </View>
+          <View style={styles.legendItem}>
+            <View style={[styles.legendDot, { backgroundColor: colors.accent }]} />
+            <Text style={styles.legendText}>Posición de escucha óptima</Text>
+          </View>
+          <View style={styles.legendItem}>
+            <View style={[styles.legendDot, { backgroundColor: '#EF4444' }]} />
+            <Text style={styles.legendText}>Trampas de graves (esquinas)</Text>
+          </View>
+          <View style={styles.legendItem}>
+            <View style={[styles.legendDot, { backgroundColor: '#10B981' }]} />
+            <Text style={styles.legendText}>Paneles absorbentes</Text>
+          </View>
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.small}>
+            💡 Tip: El "sweet spot" es la posición ideal de escucha. Evitá el centro exacto de la sala (50%)
+            para minimizar problemas de modos de sala. La posición óptima suele estar entre 36-42% de la profundidad.
+          </Text>
+        </View>
+
+        <View style={styles.footer}>
+          <Text>Página 4 • Diagrama simplificado para referencia</Text>
+        </View>
+      </Page>
+
       {/* Free Recommendations */}
       <Page size="A4" style={styles.page}>
         <Text style={styles.sectionHeader}>[CAMBIOS GRATUITOS]</Text>
@@ -409,7 +575,7 @@ export function ReportPDFDocument({ project, analysis }: ReportPDFDocumentProps)
         </View>
 
         <View style={styles.footer}>
-          <Text>Página 4 • Comenzá con los cambios más accesibles</Text>
+          <Text>Página 5 • Comenzá con los cambios más accesibles</Text>
         </View>
       </Page>
 
@@ -428,7 +594,13 @@ export function ReportPDFDocument({ project, analysis }: ReportPDFDocumentProps)
           </View>
           {lowBudgetChanges.items.slice(0, 8).map((item, idx) => (
             <View key={idx} style={styles.tableRow}>
-              <Text style={[styles.tableCell, { flex: 2 }]}>{item.product}</Text>
+              {item.link ? (
+                <Link src={item.link} style={[styles.tableCell, styles.link, { flex: 2 }]}>
+                  <Text>{item.product}</Text>
+                </Link>
+              ) : (
+                <Text style={[styles.tableCell, { flex: 2 }]}>{item.product}</Text>
+              )}
               <Text style={[styles.tableCell, { flex: 1 }]}>{item.quantity}</Text>
               <Text style={[styles.tableCell, { flex: 1 }]}>
                 ${item.unitPrice.toLocaleString()}
@@ -448,7 +620,7 @@ export function ReportPDFDocument({ project, analysis }: ReportPDFDocumentProps)
         </View>
 
         <View style={styles.footer}>
-          <Text>Página 5 • Precios reales de MercadoLibre Argentina</Text>
+          <Text>Página 6 • Hacé click en los productos para ver precios actualizados</Text>
         </View>
       </Page>
 
@@ -467,7 +639,13 @@ export function ReportPDFDocument({ project, analysis }: ReportPDFDocumentProps)
             </View>
             {advancedChanges.items.slice(0, 8).map((item, idx) => (
               <View key={idx} style={styles.tableRow}>
-                <Text style={[styles.tableCell, { flex: 2 }]}>{item.product}</Text>
+                {item.link ? (
+                  <Link src={item.link} style={[styles.tableCell, styles.link, { flex: 2 }]}>
+                    <Text>{item.product}</Text>
+                  </Link>
+                ) : (
+                  <Text style={[styles.tableCell, { flex: 2 }]}>{item.product}</Text>
+                )}
                 <Text style={[styles.tableCell, { flex: 1 }]}>{item.quantity}</Text>
                 <Text style={[styles.tableCell, { flex: 1 }]}>
                   ${item.unitPrice.toLocaleString()}
@@ -487,7 +665,7 @@ export function ReportPDFDocument({ project, analysis }: ReportPDFDocumentProps)
           </View>
 
           <View style={styles.footer}>
-            <Text>Página 6 • Para resultados profesionales</Text>
+            <Text>Página 7 • Para resultados profesionales</Text>
           </View>
         </Page>
       )}
@@ -545,7 +723,7 @@ export function ReportPDFDocument({ project, analysis }: ReportPDFDocumentProps)
         </View>
 
         <View style={styles.footer}>
-          <Text>Página 7 • Implementación gradual recomendada</Text>
+          <Text>Página 8 • Implementación gradual recomendada</Text>
         </View>
       </Page>
 

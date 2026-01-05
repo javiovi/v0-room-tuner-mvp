@@ -3,11 +3,15 @@
   "/_not-found/page": "/_not-found",
   "/analizando/page": "/analizando",
   "/api/analyze-room/route": "/api/analyze-room",
+  "/api/generate-pdf/route": "/api/generate-pdf",
+  "/api/projects/[id]/route": "/api/projects/[id]",
+  "/api/projects/route": "/api/projects",
+  "/api/search-products/route": "/api/search-products",
   "/disposicion/page": "/disposicion",
+  "/espacio/page": "/espacio",
   "/medicion/page": "/medicion",
   "/muebles/page": "/muebles",
   "/objetivo/page": "/objetivo",
   "/page": "/",
-  "/resultado/page": "/resultado",
-  "/sala/page": "/sala"
+  "/resultado/page": "/resultado"
 }

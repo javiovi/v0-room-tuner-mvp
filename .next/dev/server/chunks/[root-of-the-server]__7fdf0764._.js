@@ -168,21 +168,44 @@ function evaluateRT60(rt60, purpose) {
 }
 const absorptionCoefficients = {
     floor: {
-        madera: {
-            low: 0.15,
-            mid: 0.10,
-            high: 0.10
-        },
+        // Duros (más reflexivos)
         ceramico: {
             low: 0.01,
             mid: 0.01,
             high: 0.02
         },
+        madera: {
+            low: 0.15,
+            mid: 0.10,
+            high: 0.10
+        },
+        vinilico: {
+            low: 0.03,
+            mid: 0.03,
+            high: 0.04
+        },
+        concreto: {
+            low: 0.01,
+            mid: 0.01,
+            high: 0.02
+        },
+        marmol: {
+            low: 0.01,
+            mid: 0.01,
+            high: 0.01
+        },
+        // Blandos (más absorbentes)
         alfombra: {
             low: 0.10,
             mid: 0.40,
             high: 0.60
         },
+        goma: {
+            low: 0.05,
+            mid: 0.15,
+            high: 0.30
+        },
+        // Otros
         otro: {
             low: 0.05,
             mid: 0.05,
@@ -190,11 +213,23 @@ const absorptionCoefficients = {
         }
     },
     wall: {
+        // Duras (más reflexivas)
         desnudas: {
             low: 0.02,
             mid: 0.02,
             high: 0.03
         },
+        vidrio: {
+            low: 0.03,
+            mid: 0.02,
+            high: 0.02
+        },
+        ladrillo: {
+            low: 0.03,
+            mid: 0.03,
+            high: 0.04
+        },
+        // Con elementos
         cuadros: {
             low: 0.05,
             mid: 0.10,
@@ -205,6 +240,17 @@ const absorptionCoefficients = {
             mid: 0.25,
             high: 0.40
         },
+        cortinas: {
+            low: 0.05,
+            mid: 0.25,
+            high: 0.45
+        },
+        paneles_madera: {
+            low: 0.15,
+            mid: 0.20,
+            high: 0.15
+        },
+        // Mixto
         mixto: {
             low: 0.06,
             mid: 0.15,
@@ -212,30 +258,74 @@ const absorptionCoefficients = {
         }
     },
     furniture: {
+        // Asientos
         sofa: {
             low: 0.25,
             mid: 0.35,
             high: 0.40
-        },
-        escritorio: {
-            low: 0.05,
-            mid: 0.10,
-            high: 0.10
-        },
-        estanteria: {
-            low: 0.10,
-            mid: 0.20,
-            high: 0.30
         },
         silla: {
             low: 0.05,
             mid: 0.15,
             high: 0.20
         },
+        puff: {
+            low: 0.20,
+            mid: 0.30,
+            high: 0.35
+        },
+        // Almacenamiento
+        estanteria: {
+            low: 0.10,
+            mid: 0.20,
+            high: 0.30
+        },
+        armario: {
+            low: 0.08,
+            mid: 0.12,
+            high: 0.15
+        },
+        cajonera: {
+            low: 0.06,
+            mid: 0.10,
+            high: 0.12
+        },
+        // Trabajo/Estudio
+        escritorio: {
+            low: 0.05,
+            mid: 0.10,
+            high: 0.10
+        },
         mesa: {
             low: 0.03,
             mid: 0.08,
             high: 0.10
+        },
+        rack: {
+            low: 0.05,
+            mid: 0.12,
+            high: 0.18
+        },
+        // Otros
+        cama: {
+            low: 0.30,
+            mid: 0.40,
+            high: 0.45
+        },
+        plantas: {
+            low: 0.05,
+            mid: 0.10,
+            high: 0.15
+        },
+        instrumentos: {
+            low: 0.10,
+            mid: 0.15,
+            high: 0.20
+        },
+        alfombra: {
+            low: 0.15,
+            mid: 0.40,
+            high: 0.60
         }
     }
 };

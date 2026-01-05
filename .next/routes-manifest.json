@@ -19,7 +19,16 @@
     "afterFiles": [],
     "fallback": []
   },
-  "dynamicRoutes": [],
+  "dynamicRoutes": [
+    {
+      "page": "/api/projects/[id]",
+      "regex": "^/api/projects/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/projects/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
   "staticRoutes": [
     {
       "page": "/",
@@ -52,10 +61,34 @@
       "namedRegex": "^/api/analyze\\-room(?:/)?$"
     },
     {
+      "page": "/api/generate-pdf",
+      "regex": "^/api/generate\\-pdf(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/generate\\-pdf(?:/)?$"
+    },
+    {
+      "page": "/api/projects",
+      "regex": "^/api/projects(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/projects(?:/)?$"
+    },
+    {
+      "page": "/api/search-products",
+      "regex": "^/api/search\\-products(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/search\\-products(?:/)?$"
+    },
+    {
       "page": "/disposicion",
       "regex": "^/disposicion(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/disposicion(?:/)?$"
+    },
+    {
+      "page": "/espacio",
+      "regex": "^/espacio(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/espacio(?:/)?$"
     },
     {
       "page": "/medicion",
@@ -80,12 +113,6 @@
       "regex": "^/resultado(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/resultado(?:/)?$"
-    },
-    {
-      "page": "/sala",
-      "regex": "^/sala(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/sala(?:/)?$"
     }
   ],
   "dataRoutes": [],
