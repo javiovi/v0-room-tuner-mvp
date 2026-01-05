@@ -74,7 +74,9 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     textTransform: 'uppercase',
     letterSpacing: 1,
-    borderBottom: `3px solid ${colors.primary}`,
+    borderBottomWidth: 3,
+    borderBottomColor: colors.primary,
+    borderBottomStyle: 'solid',
     paddingBottom: 6,
   },
 
@@ -110,7 +112,9 @@ const styles = StyleSheet.create({
 
   // Boxes and cards
   card: {
-    border: `3px solid ${colors.primary}`,
+    borderWidth: 3,
+    borderColor: colors.primary,
+    borderStyle: 'solid',
     padding: 12,
     marginBottom: 12,
     backgroundColor: '#FAFAFA',
@@ -118,7 +122,6 @@ const styles = StyleSheet.create({
 
   // Badges and labels
   badge: {
-    display: 'inline-flex',
     padding: '4px 8px',
     fontSize: 8,
     fontWeight: 'bold',
@@ -129,17 +132,23 @@ const styles = StyleSheet.create({
   badgeCritical: {
     backgroundColor: '#FEE2E2',
     color: colors.destructive,
-    border: `2px solid ${colors.destructive}`,
+    borderWidth: 2,
+    borderColor: colors.destructive,
+    borderStyle: 'solid',
   },
   badgeWarning: {
     backgroundColor: '#FEF3C7',
     color: '#D97706',
-    border: '2px solid #D97706',
+    borderWidth: 2,
+    borderColor: '#D97706',
+    borderStyle: 'solid',
   },
   badgeInfo: {
     backgroundColor: '#FFF7ED',
     color: colors.primary,
-    border: `2px solid ${colors.primary}`,
+    borderWidth: 2,
+    borderColor: colors.primary,
+    borderStyle: 'solid',
   },
 
   // Lists
@@ -167,7 +176,9 @@ const styles = StyleSheet.create({
   },
   tableHeader: {
     backgroundColor: '#FFF7ED',
-    borderBottom: `2px solid ${colors.primary}`,
+    borderBottomWidth: 2,
+    borderBottomColor: colors.primary,
+    borderBottomStyle: 'solid',
     fontWeight: 'bold',
   },
   tableCell: {
@@ -193,14 +204,16 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
     marginBottom: 12,
   },
   metricBox: {
     flex: '1 1 45%',
-    border: `2px solid ${colors.primary}`,
+    borderWidth: 2,
+    borderColor: colors.primary,
+    borderStyle: 'solid',
     padding: 8,
     backgroundColor: '#FAFAFA',
+    margin: 4,
   },
   metricLabel: {
     fontSize: 8,
